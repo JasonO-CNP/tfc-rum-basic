@@ -255,9 +255,9 @@ def process_oss(args):
             ws_sum['id'] = 'n/a'
             ws_sum['name'] = ws['id']
             ws_sum['resource-count'] = 0
-            ws_sum['terraform-version'] = ws['terraform_version']
+            ws_sum['terraform-version'] = ws.get('terraform_version', 'unknown')
             ws_sum['last-updated'] = datetime.datetime.utcnow().strftime('%Y-%m-%dT%H:%M:%S.%fZ')
-            resources = ws['resources']
+            resources = ws.get('resources', [])
             rum = 0
             null_rs = 0
             data_rs = 0
